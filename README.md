@@ -60,29 +60,40 @@ This tool bridges the gap between static analysis and interactive exploration, e
 
 ## Results
 
-Analysis results will be stored in the `results` directory, including:
-- Common genes across datasets
-- Unique genes for each dataset
-- Comparison tables and visualizations
+- Extracted **906 glycosylation-related genes** using curated datasets from GlyGen.
+- Enrichment analysis of these genes revealed muscular dystrophy as a glycosylation-impacted disease.
+- After RNA-seq analysis of two muscular dystrophy datasets: GSE140261 and GSE162108. We found: **152 common (between both datasets)upregulated genes** AND  **54 common (between both datasets) downregulated genes**
+- Pathway Enrichment (KEGG) analysis revealed: **56 enriched pathways in one dataset AND 39 enriched pathways in the other**
+- Cytoscape analysis revealed:
+  Strong Glycoenzyme Involvement in GAG Metabolism
+  Alteration in Chondroitin, Heparan, and Keratan Sulfate Pathways
+  This suggests a widespread disruption in GAG metabolism, which is known to be critical for muscle structure, signaling, and regeneration.
+  Alterations in these glycosylation-related pathways have been linked to muscle degeneration, inflammation, and impaired extracellular matrix remodeling — all hallmarks of muscular dystrophy.
+
+Therefore, our findings strengthen the case that glycosylation, especially GAG-related pathways, plays a key role in muscular dystrophy pathogenesis.
 
 
-## Repo Structure
-```
-GlycoEnzyme-Expression-Atlas/
-├── data/
-│   ├── raw/           # Original, immutable data
-│   ├── processed/     # Cleaned and processed data
-│   └── interim/       # Intermediate data that has been transformed
-├── scripts/
-│   ├── scraping/     # Scripts for data collection and web scraping
-│   ├── analysis/     # Scripts for data analysis and visualization
-│   └── utils/        # Utility functions and helper scripts
-├── docs/            # Documentation files
-├── notebooks/       # Jupyter notebooks for exploration and analysis
-└── results/
-    ├── figures/     # Generated graphics and figures
-    └── tables/      # Generated tables and CSV files
-```
+## Conclusion
+
+This project demonstrates a reusable pipeline to explore glycoenzyme expression and pathway dysregulation in disease. By integrating gene expression, pathway enrichment, and interaction networks:
+We validated muscular dystrophy as a disease strongly linked to glycosylation dysfunction.
+Identified core glycoenzymes and pathways that may serve as biomarkers or therapeutic targets.
+Created a scalable framework that can be applied to other glycosylation-impacted diseases.
+Developed an interactive R Shiny tool to make the results accessible to researchers, supporting gene-centric exploration and hypothesis generation.
+This work highlights the importance of glycosylation in disease mechanisms and provides an open-source, FAIR-compliant approach to facilitate glyco-bioinformatics research.
+
+## Scalability and Broader Impact
+Our integrated approach not only identified differentially expressed glycoenzymes, but also clearly revealed key biochemical pathways—such as GAG biosynthesis and degradation—that are significantly disrupted in muscular dystrophy. This pipeline provides a framework for validating glycosylation pathway dysregulation in any disease. By simply plugging in disease-specific expression data, the workflow can be applied to:
+- Identify glycoenzyme-related expression changes
+- Perform pathway enrichment
+- Map functional networks
+- And ultimately highlight disease-relevant glycosylation mechanisms
+This demonstrates that our tool is not limited to muscular dystrophy — it can be extended to any glycosylation-impacted condition, such as:
+- Cancer
+- Inflammatory bowel disease
+- Congenital disorders of glycosylation
+- Neurodegenerative diseases
+This positions the GlycoEnzyme Expression Atlas as a versatile platform for exploring glycosylation biology in precision medicine and driving future therapeutic research.
 
 ## Prerequisites
 
