@@ -23,7 +23,8 @@ def get_genes(filename, symbol_column='gene_symbol'):
         genes = set()
         for row in reader:
             if row[symbol_column] and row['padj'] and row['padj'] != "NA":
-                genes.add(row[symbol_column].strip())
+                if float(row['padj']) < 0.05:
+                    genes.add(row[symbol_column].strip())
 
     controls = {
         "controls": [control(gene) for gene in genes]
@@ -79,7 +80,8 @@ def main():
     genes=get_genes(sys.argv[1])
     if genes:
         collection = [get_gene(gene) for gene in genes]
-        print("analyzing", len(collection), "genes")
+        print("analyzing", len(collection), "genes", file=sys.stderr)
+        print("pathway", "p-value", sep="\t")
         gelinea = run_gelinea(collection)
         for pathway in gelinea:
             pvalue = 1.0
