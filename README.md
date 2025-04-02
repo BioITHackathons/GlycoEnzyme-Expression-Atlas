@@ -1,63 +1,72 @@
 # GlycoEnzyme Expression Atlas: Linking Differential Expression to Pathway Dysregulation
 
-A comprehensive bioinformatics project focused on establishing connections between glycoenzyme expression patterns and pathway dysregulation across various disease states. This project is part of the CFDE/GlyGen initiative.
+Despite the critical role glycosylation plays in health and disease, the expression patterns of glycoenzymes and their impact on biological pathways remain poorly understood and underexplored. Existing resources do not effectively link differential glycoenzyme expression to pathway dysregulation across disease states, making it difficult for researchers to uncover disease mechanisms or identify therapeutic targets related to glycosylation.
 
-## Project Overview
+## Why This Needs to Be Solved ?
+ - Glycosylation is involved in key cellular processes, yet is often overlooked in genomic and pathway-level analyses.
+ - Glycoenzymes are potential biomarkers and drug targets, but are not widely studied due to lack of integrated resources.
+ - Current databases are fragmented, lacking a centralized, open-source platform that connects expression data to functional impact.
+ - Solving this will empower researchers and clinicians to uncover glycosylation-related disease mechanisms, aiding precision medicine efforts.
 
-The GlycoEnzyme Expression Atlas integrates multiple data types and analytical approaches to understand glycoenzyme expression patterns:
-- RNA-seq data preprocessing using DESeq2/EdgeR for differential expression
-- Mapping of glycoenzyme genes using CAZy and GlyGen databases
-- Integration with KEGG/Reactome pathway annotations
-- Network analysis via Cytoscape/STRING for interaction mapping
+## Objective
+To build an open-source, interactive atlas that integrates transcriptomic data, glycoenzyme gene sets, and pathway/network analysis — enabling researchers to explore glycosylation-related dysregulation in diseases, starting with muscular dystrophy
 
-## Team Members
-- **Vlado Dancik, PhD** (Team Lead) - Computational Chemical Biologist, Broad Institute
-- **Isha Parikh** - Team Member
-- **Aymen Maqsood** - Team Member
-- **Chandani Shrestha** - Team Member
+## Workflow
+![GlycoEnzyme Expression Atlas Workflow](images/workflow.png)
 
 ## Methodology
 
-### 1. Disease-Glycosylation Association Analysis
+The GlycoEnzyme Expression Atlas project was conducted in four key phases, each building toward identifying and visualizing glycoenzyme-driven pathway dysregulation in disease states.
+
+### Phase 1: Disease Model Selection
+- Identified 906 disease-associated glycosylation-related genes from databases like GlyGen. Data used:
+- [GLY_000623 – Human Glycogenes](https://data.glygen.org/GLY_000623)
+- [GLY_000004 – Human Glycosyltransferases](https://data.glygen.org/GLY_000004)
+- [GLY_000025 – Human Glycoside Hydrolases](https://data.glygen.org/GLY_000025)
+
 Through systematic analysis of glycogene-disease associations and glycosylation sites, we identified muscular dystrophy as the most promising disease model for RNA-seq analysis. This selection was based on:
+- [GLY_000225 – Human Protein Glycosylation Diseases](https://data.glygen.org/GLY_000225)
+- [GLY_000230 – Human Protein Glycosylation Disease Annotations](https://data.glygen.org/GLY_000230)
+- [GLY_000308 – Human Glycogenes with Disease Associations](https://data.glygen.org/GLY_000308)
 
-![Disease-Glycosylation Network](results/figures/disease_glycosylation_network.pdf)
-*Network visualization of disease-glycosylation associations*
+### Phase 2: RNA-Seq Differential Expression Analysis
+**Disease-Glycosylation Association Analysis**
+Selected two RNA-seq datasets related to muscular dystrophy from public repositories:
+- [GSE140261 – RNA-seq data for Facioscapulohumeral Muscular Dystrophy (FSHD)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140261)
+- [PMCID: PMC8756543 – Molecular Features of FSHD through Transcriptomic Analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC8756543/)
 
-![Disease-Glycosylation Barplot](results/figures/disease_glycosylation_barplot.pdf)
-*Distribution of glycosylation-related genes across disease categories*
-
-### 2. RNA-seq Analysis Pipeline
 1. **Data Collection and Preprocessing**
    - RNA-seq count matrix preparation
    - Quality control and normalization
    - Metadata organization and validation
 
 2. **Differential Expression Analysis**
-   - DESeq2 implementation for RNA-seq analysis
+   - DESeq2/Edge R implementation for RNA-seq analysis
    - Statistical testing and multiple testing correction
    - Fold change and p-value calculations
+   - These were filtered for glycoenzymes to focus on glycosylation-related dysregulation
 
-3. **Pathway Analysis**
-   - KEGG pathway enrichment analysis
-   - Reactome pathway mapping
-   - Gene set enrichment analysis (GSEA)
+### Phase 3: Pathway & Network Analysis
+Mapped filtered glycoenzymes to biological pathways using KEGG.
+KEGG enrichment analysis using clusterProfiler to identify significantly enriched pathways involving glycoenzymes.
 
-4. **Network Analysis**
-   - STRING protein-protein interaction network construction
-   - Cytoscape visualization and analysis
-   - Module identification and pathway mapping
+### Phase 4: Interactive Visualization with R Shiny
+To make our findings accessible and actionable, we developed an R Shiny application that allows researchers to:
+- Input a gene of interest to explore its role in muscular dystrophy.
+- View expression patterns and differential expression status.
+- Visualize KEGG pathway associations and heatmaps across patients.
+- Explore the gene’s network context via STRING-based interactions.
+This tool bridges the gap between static analysis and interactive exploration, enabling users to dive deeper into glycosylation-related dysregulation in a user-friendly interface.
 
-### 3. Interactive Visualization
-The project includes a Shiny dashboard (`app.R`) providing interactive access to:
-- Differential expression results
-- Pathway enrichment analysis
-- Network visualization
-- Gene expression patterns
-- Statistical summaries
+## Results
 
-## Project Structure
+Analysis results will be stored in the `results` directory, including:
+- Common genes across datasets
+- Unique genes for each dataset
+- Comparison tables and visualizations
 
+
+## Repo Structure
 ```
 GlycoEnzyme-Expression-Atlas/
 ├── data/
@@ -80,7 +89,6 @@ GlycoEnzyme-Expression-Atlas/
 - Python 3.x
 - R version ≥ 4.0.0
 - Bioconductor 3.12 or higher
-- Cytoscape 3.8 or higher (optional, for network visualization)
 
 ## Installation
 
@@ -95,44 +103,6 @@ cd GlycoEnzyme-Atlas
 pip install pandas numpy
 ```
 
-## FAIR Principles
-
-This project follows FAIR (Findable, Accessible, Interoperable, and Reusable) principles:
-
-- **Findable**: 
-  - Data findable through public repositories (GlyGen, GEO, EMBL-EBI Expression Atlas)
-  - Standardized metadata and persistent identifiers
-  - Integration with existing databases
-
-- **Accessible**: 
-  - All datasets, analysis pipelines, and visualization tools freely available
-  - Open-access policies on GitHub and Zenodo
-  - Clear documentation and usage guidelines
-
-- **Interoperable**: 
-  - Adherence to standardized ontologies (EDAM, OBI, Human Disease Ontology)
-  - Standard data formats (FASTA, CSV, JSON)
-  - Integration with existing bioinformatics tools
-
-- **Reusable**: 
-  - Well-documented pipelines and methodologies
-  - Open-source licensing (Creative Commons CC-BY-4.0)
-  - Comprehensive documentation and examples
-
-## License
-This project is licensed under the Creative Commons CC-BY-4.0 license.
-
-## Acknowledgments
-- CFDE/GlyGen for project support
-- GlyCosmos and CAZy databases
-- Bioconductor project and all package maintainers
-- Broad Institute for computational resources
-
-## Analysis Scripts
-
-The `scripts/analysis` directory contains:
-- `find_common_genes.py`: Script to identify common genes across different datasets, handling alternative gene names
-
 ## Getting Started
 
 1. Ensure you have Python 3.x installed
@@ -141,29 +111,15 @@ The `scripts/analysis` directory contains:
    pip install pandas numpy
    ```
 3. Run analysis scripts from the project root directory
-
-## Results
-
-Analysis results will be stored in the `results` directory, including:
-- Common genes across datasets
-- Unique genes for each dataset
-- Comparison tables and visualizations
-
-## Contributing
-
-Please read the documentation in the `docs` directory for guidelines on contributing to this project. 
-
-## Shiny App
-
-The Shiny app can be run using the following R code:
+4. The Shiny app can be run using the following R code:
 ```R
 shiny::runApp("app.R")
 ```
-
-## Citation
-
-If you use this analysis in your research, please cite:
-```
-GlycoEnzyme Expression Atlas: A comprehensive analysis of glycogene expression patterns in disease states
-https://github.com/BioITHackathons/GlycoEnzyme-Expression-Atlas
-``` 
+ 
+## Citation/References
+## Acknowledgments
+- CFDE/GlyGen for project support
+- GlyCosmos and CAZy databases
+- Bioconductor project and all package maintainers
+- Broad Institute for computational resources
+  
