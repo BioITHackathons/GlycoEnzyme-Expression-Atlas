@@ -130,8 +130,19 @@ pip install pandas numpy
 ```R
 shiny::runApp("app.R")
 ```
- 
+## Team Members
+- **Vlado Dancik, PhD** (Team Lead) - Computational Chemical Biologist, Broad Institute
+- **Isha Parikh** - Team Member: parikh.i@northeastern.edu
+- **Aymen Maqsood** - Team Member: aymenmaqsood.2000@gmail.com
+- **Chandani Shrestha** - Team Member: shrestha.chandani08@gmail.com
+
 ## Citation/References
+https://info.cfde.cloud/
+https://cytoscape.org/
+https://info.cfde.cloud/
+https://www.cazy.org/
+https://www.glygen.org/
+
 ## Acknowledgments
 - CFDE/GlyGen for project support
 - GlyCosmos and CAZy databases
