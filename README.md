@@ -88,11 +88,13 @@ Our integrated approach not only identified differentially expressed glycoenzyme
 - Perform pathway enrichment
 - Map functional networks
 - And ultimately highlight disease-relevant glycosylation mechanisms
+
 This demonstrates that our tool is not limited to muscular dystrophy — it can be extended to any glycosylation-impacted condition, such as:
 - Cancer
 - Inflammatory bowel disease
 - Congenital disorders of glycosylation
 - Neurodegenerative diseases
+
 This positions the GlycoEnzyme Expression Atlas as a versatile platform for exploring glycosylation biology in precision medicine and driving future therapeutic research.
 
 ## Prerequisites
