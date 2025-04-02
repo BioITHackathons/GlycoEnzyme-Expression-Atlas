@@ -146,3 +146,10 @@ Analysis results will be stored in the `results` directory, including:
 ## Contributing
 
 Please read the documentation in the `docs` directory for guidelines on contributing to this project. 
+
+## Shiny App
+
+The Shiny app can be run using the following R code:
+```R
+shiny::runApp("app.R")
+``` 
