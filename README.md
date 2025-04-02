@@ -47,8 +47,10 @@ Selected two RNA-seq datasets related to muscular dystrophy from public reposito
    - These were filtered for glycoenzymes to focus on glycosylation-related dysregulation
 
 ### Phase 3: Pathway & Network Analysis
+Validated the common genes using CFDE portal
 Mapped filtered glycoenzymes to biological pathways using KEGG.
-KEGG enrichment analysis using clusterProfiler to identify significantly enriched pathways involving glycoenzymes.
+KEGG enrichment analysis using clusterProfiler to identify significantly enriched pathways involving glycoenzymes
+Cytoscape to visualize and analyze the interaction networks of glycoenzymes, helping identify key hubs and functional modules involved in disease
 
 ### Phase 4: Interactive Visualization with R Shiny
 To make our findings accessible and actionable, we developed an R Shiny application that allows researchers to:
