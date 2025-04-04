@@ -32,12 +32,12 @@ library(markdown)
 library(RColorBrewer)
 
 # Load data
-deseq_results <- read.csv("data/Deseq2_results/fshd_significant_genes.csv", row.names = 1)
-glycogenes <- readLines("data/isha_data/all_glycogenes.txt")
+deseq_results <- read.csv("../data/Deseq2_results/fshd_significant_genes.csv", row.names = 1)
+glycogenes <- readLines("../data/isha_data/all_glycogenes.txt")
 glycogenes <- glycogenes[glycogenes != ""]
 
-kegg_pathways <- read.csv("results/pathway/kegg_pathways.csv")
-summary_stats <- readLines("results/GSE162108_summary.txt")
+kegg_pathways <- read.csv("../results/pathway/kegg_pathways.csv")
+summary_stats <- readLines("../results/GSE162108_summary.txt")
 
 # Add gene symbols to DESeq2 results
 deseq_results$gene <- rownames(deseq_results)
@@ -141,7 +141,7 @@ ui <- dashboardPage(
                      demonstrating strong associations with multiple glycosylation-related genes."),
               tags$div(
                 style = "text-align: center; margin: 20px 0;",
-                tags$img(src = "disease_glycosylation_barplot.png", 
+                tags$img(src = "../results/www/disease_glycosylation_barplot.png", 
                         width = "100%",
                         style = "max-width: 800px;")
               )
@@ -221,7 +221,7 @@ ui <- dashboardPage(
           box(
             title = "Interactive Volcano Plot",
             width = 6,
-            tags$iframe(src = "GSE162108_volcano_interactive.html", 
+            tags$iframe(src = "../results/www/GSE162108_volcano_interactive.html", 
                        width = "100%", 
                        height = "600px",
                        style = "border: none;")
@@ -253,7 +253,7 @@ ui <- dashboardPage(
                      with dot size representing gene count and color indicating adjusted p-value significance."),
               tags$div(
                 style = "text-align: center; margin: 20px 0;",
-                tags$img(src = "kegg_pathway_dotplot.png", 
+                tags$img(src = "../results/www/kegg_pathway_dotplot.png", 
                         width = "100%",
                         style = "max-width: 800px;")
               )

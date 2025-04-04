@@ -118,6 +118,18 @@ cd GlycoEnzyme-Atlas
 pip install pandas numpy
 ```
 
+## Project Structure
+```
+.
+├── data/                      # Input data files
+├── results/                   # Analysis results
+│   ├── pathway/              # Pathway analysis results
+│   └── www/                  # Visualization assets
+├── scripts/                  # Analysis scripts
+└── shiny/                   # R Shiny application
+    └── app.R                # Main Shiny application file
+```
+
 ## Getting Started
 
 1. Ensure you have Python 3.x and R ≥ 4.2.0 installed
@@ -130,10 +142,10 @@ pip install pandas numpy
 4. To run the Shiny app:
    ```R
    # From R console
-   shiny::runApp("scripts/shiny/app.R")
+   shiny::runApp("shiny/app.R")
    
    # Or from terminal
-   Rscript -e "shiny::runApp('scripts/shiny/app.R')"
+   Rscript -e "shiny::runApp('shiny/app.R')"
    ```
 
 ## Shiny App Features
