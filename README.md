@@ -57,7 +57,7 @@ To make our findings accessible and actionable, we developed an R Shiny applicat
 - Input a gene of interest to explore its role in muscular dystrophy.
 - View expression patterns and differential expression status.
 - Visualize KEGG pathway associations and heatmaps across patients.
-- Explore the gene’s network context via STRING-based interactions.
+- Explore the gene's network context via STRING-based interactions.
 This tool bridges the gap between static analysis and interactive exploration, enabling users to dive deeper into glycosylation-related dysregulation in a user-friendly interface.
 
 ## Results
@@ -120,16 +120,48 @@ pip install pandas numpy
 
 ## Getting Started
 
-1. Ensure you have Python 3.x installed
-2. Install required dependencies:
-   ```bash
-   pip install pandas numpy
+1. Ensure you have Python 3.x and R ≥ 4.2.0 installed
+2. Install required R packages:
+   ```R
+   install.packages(c("shiny", "shinydashboard", "DT", "plotly", "dplyr", 
+                     "ggplot2", "pheatmap", "tidyr", "markdown", "RColorBrewer"))
    ```
 3. Run analysis scripts from the project root directory
-4. The Shiny app can be run using the following R code:
-```R
-shiny::runApp("app.R")
-```
+4. To run the Shiny app:
+   ```R
+   # From R console
+   shiny::runApp("scripts/shiny/app.R")
+   
+   # Or from terminal
+   Rscript -e "shiny::runApp('scripts/shiny/app.R')"
+   ```
+
+## Shiny App Features
+
+The interactive R Shiny application (`scripts/shiny/app.R`) provides several key features:
+
+1. **Overview Dashboard**
+   - Technical architecture and workflow visualization
+   - Summary statistics and key findings
+   - Project methodology and implementation details
+
+2. **Muscular Dystrophy Analysis**
+   - Disease-glycosylation association visualization
+   - FSHD-specific expression patterns
+   - Clinical and sample information
+
+3. **Glycogene Expression Analysis**
+   - Interactive volcano plots
+   - Expression heatmaps
+   - Detailed gene-level statistics
+
+4. **Pathway Analysis**
+   - KEGG pathway enrichment visualization
+   - Network analysis results
+   - Pathway-gene associations
+
+The app is designed to be user-friendly and provides interactive visualizations of our analysis results, making it easy for researchers to explore glycosylation-related dysregulation in muscular dystrophy.
+
 ## Team Members
 - **Vlado Dancik, PhD** (Team Lead) - Computational Chemical Biologist, Broad Institute
 - **Isha Parikh** - Team Member: parikh.i@northeastern.edu
