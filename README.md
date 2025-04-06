@@ -19,7 +19,7 @@ To build an open-source, interactive atlas that integrates transcriptomic data, 
 The **GlycoEnzyme Expression Atlas** project was conducted in **four key phases**, each building toward identifying and visualizing glycoenzyme-driven pathway dysregulation in disease states:
 
 ### Phase 1: Disease Model Selection
- - Identified 906 disease-associated glycosylation-related genes from databases like *GlyGen*. Data used:
+Identified 906 disease-associated glycosylation-related genes from databases like *GlyGen*. Data used:
  - [GLY_000623 – Human Glycogenes](https://data.glygen.org/GLY_000623)
  - [GLY_000004 – Human Glycosyltransferases](https://data.glygen.org/GLY_000004)
  - [GLY_000025 – Human Glycoside Hydrolases](https://data.glygen.org/GLY_000025)
