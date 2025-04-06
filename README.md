@@ -1,8 +1,8 @@
 # GlycoEnzyme Expression Atlas: Linking Differential Expression to Pathway Dysregulation
 
-Despite the critical role glycosylation plays in health and disease, the expression patterns of glycoenzymes and their impact on biological pathways remain poorly understood and underexplored. Existing resources do not effectively link differential glycoenzyme expression to pathway dysregulation across disease states, making it difficult for researchers to uncover disease mechanisms or identify therapeutic targets related to glycosylation.
+Despite glycosylation's critical role in health and disease, the expression patterns of glycoenzymes and their impact on biological pathways are not well-understood and remain underexplored. Existing resources do not effectively link differential glycoenzyme expression to pathway dysregulation across disease states, making it difficult for researchers to uncover disease mechanisms or identify therapeutic targets related to glycosylation.
 
-## Why This Needs to Be Solved ?
+## Why Addressing This Is Crucial ?
  - Glycosylation is involved in key cellular processes, yet is often overlooked in genomic and pathway-level analyses.
  - Glycoenzymes are potential biomarkers and drug targets, but are not widely studied due to lack of integrated resources.
  - Current databases are fragmented, lacking a centralized, open-source platform that connects expression data to functional impact.
@@ -16,10 +16,10 @@ To build an open-source, interactive atlas that integrates transcriptomic data, 
 
 ## Methodology
 
-The GlycoEnzyme Expression Atlas project was conducted in four key phases, each building toward identifying and visualizing glycoenzyme-driven pathway dysregulation in disease states.
+The **GlycoEnzyme Expression Atlas** project was conducted in **four key phases**, each building toward identifying and visualizing glycoenzyme-driven pathway dysregulation in disease states:
 
 ### Phase 1: Disease Model Selection
-- Identified 906 disease-associated glycosylation-related genes from databases like GlyGen. Data used:
+- Identified 906 disease-associated glycosylation-related genes from databases like *GlyGen*. Data used:
 - [GLY_000623 – Human Glycogenes](https://data.glygen.org/GLY_000623)
 - [GLY_000004 – Human Glycosyltransferases](https://data.glygen.org/GLY_000004)
 - [GLY_000025 – Human Glycoside Hydrolases](https://data.glygen.org/GLY_000025)
@@ -41,31 +41,31 @@ Selected two RNA-seq datasets related to muscular dystrophy from public reposito
    - Metadata organization and validation
 
 2. **Differential Expression Analysis**
-   - DESeq2/Edge R implementation for RNA-seq analysis
+   - *DESeq2/Edge* R implementation for RNA-seq analysis
    - Statistical testing and multiple testing correction
    - Fold change and p-value calculations
    - These were filtered for glycoenzymes to focus on glycosylation-related dysregulation
 
 ### Phase 3: Pathway & Network Analysis
-Validated the common genes using CFDE portal
-Mapped filtered glycoenzymes to biological pathways using KEGG.
-KEGG enrichment analysis using clusterProfiler to identify significantly enriched pathways involving glycoenzymes
-Cytoscape to visualize and analyze the interaction networks of glycoenzymes, helping identify key hubs and functional modules involved in disease
+Validated the common genes using *CFDE* portal
+Mapped filtered glycoenzymes to biological pathways using *KEGG*.
+*KEGG* enrichment analysis using clusterProfiler to identify significantly enriched pathways involving glycoenzymes
+*Cytoscape* to visualize and analyze the interaction networks of glycoenzymes, helping identify key hubs and functional modules involved in disease
 
-### Phase 4: Interactive Visualization with R Shiny
-To make our findings accessible and actionable, we developed an R Shiny application that allows researchers to:
+### Phase 4: Interactive Visualization with *R Shiny*
+To make our findings accessible and actionable, we developed an *R Shiny* application that allows researchers to:
 - Input a gene of interest to explore its role in muscular dystrophy.
 - View expression patterns and differential expression status.
-- Visualize KEGG pathway associations and heatmaps across patients.
+- Visualize *KEGG* pathway associations and heatmaps across patients.
 - Explore the gene's network context via STRING-based interactions.
 This tool bridges the gap between static analysis and interactive exploration, enabling users to dive deeper into glycosylation-related dysregulation in a user-friendly interface.
 
 ## Results
 
-- Extracted **906 glycosylation-related genes** using curated datasets from GlyGen.
+- Extracted **906 glycosylation-related genes** using curated datasets from *GlyGen*.
 - Enrichment analysis of these genes revealed muscular dystrophy as a glycosylation-impacted disease.
 - After RNA-seq analysis of two muscular dystrophy datasets: GSE140261 and GSE162108. We found: **152 common (between both datasets)upregulated genes** AND  **54 common (between both datasets) downregulated genes**
-- Pathway Enrichment (KEGG) analysis revealed: **56 enriched pathways in one dataset AND 39 enriched pathways in the other**
+- Pathway Enrichment (*KEGG*) analysis revealed: **56 enriched pathways in one dataset AND 39 enriched pathways in the other**
 - Cytoscape analysis revealed:
   Strong Glycoenzyme Involvement in GAG Metabolism
   Alteration in Chondroitin, Heparan, and Keratan Sulfate Pathways
@@ -109,6 +109,7 @@ This positions the GlycoEnzyme Expression Atlas as a versatile platform for expl
 
 1. Clone this repository:
 ```bash
+# Clone the repository to your local machine
 git clone https://github.com/yourusername/GlycoEnzyme-Atlas.git
 cd GlycoEnzyme-Atlas
 ```
@@ -132,7 +133,7 @@ pip install pandas numpy
 
 ## Getting Started
 
-1. Ensure you have Python 3.x and R ≥ 4.2.0 installed
+1. <span style='color:red;'>Important:</span> Ensure you have Python 3.x and R ≥ 4.2.0 installed
 2. Install required R packages:
    ```R
    install.packages(c("shiny", "shinydashboard", "DT", "plotly", "dplyr", 
