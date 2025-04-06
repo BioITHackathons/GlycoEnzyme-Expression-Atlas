@@ -189,8 +189,8 @@ https://www.cazy.org/
 https://www.glygen.org/
 
 ## Acknowledgments
-- CFDE/GlyGen for project support
-- GlyCosmos and CAZy databases
+- *CFDE/GlyGen* for project support
+- *GlyCosmos* and *CAZy* databases
 - Bioconductor project and all package maintainers
 - Broad Institute for computational resources
   
